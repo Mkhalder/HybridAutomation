@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Gradle suite" duration-ms="97018" started-at="2023-06-09T14:02:48 BDT" finished-at="2023-06-09T14:04:25 BDT">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.HybridRunner@192d43ce]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Gradle test" duration-ms="97018" started-at="2023-06-09T14:02:48 BDT" finished-at="2023-06-09T14:04:25 BDT">
+      <class name="Runner.HybridRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:Runner.HybridRunner@192d43ce]" name="setUpClass" is-config="true" duration-ms="1097" started-at="2023-06-09T14:02:48 BDT" finished-at="2023-06-09T14:02:49 BDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.HybridRunner@192d43ce]" name="runScenario" duration-ms="4677" started-at="2023-06-09T14:02:49 BDT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-06-09T14:02:54 BDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["get api check of pages"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Get Api Response]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.HybridRunner@192d43ce]" name="runScenario" duration-ms="1541" started-at="2023-06-09T14:02:54 BDT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-06-09T14:02:56 BDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["check register registration successful or not"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Register Registration]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.HybridRunner@192d43ce]" name="runScenario" duration-ms="46537" started-at="2023-06-09T14:02:56 BDT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-06-09T14:03:42 BDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["login with valid credentials"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[eribank login]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.HybridRunner@192d43ce]" name="runScenario" duration-ms="15958" started-at="2023-06-09T14:03:42 BDT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-06-09T14:03:58 BDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Manager adds a customer"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Bank Manager Login (add customer)]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.HybridRunner@192d43ce]" name="runScenario" duration-ms="13111" started-at="2023-06-09T14:03:58 BDT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-06-09T14:04:11 BDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Manager open an account"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Bank Manager Login (open account)]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.HybridRunner@192d43ce]" name="runScenario" duration-ms="13926" started-at="2023-06-09T14:04:11 BDT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-06-09T14:04:25 BDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["manager delete account"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Bank Manager Login (customers)]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:Runner.HybridRunner@192d43ce]" name="tearDownClass" is-config="true" duration-ms="103" started-at="2023-06-09T14:04:25 BDT" finished-at="2023-06-09T14:04:25 BDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- Runner.HybridRunner -->
+    </test> <!-- Gradle test -->
+  </suite> <!-- Gradle suite -->
+</testng-results>

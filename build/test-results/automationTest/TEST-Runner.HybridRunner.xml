@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Runner.HybridRunner" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-06-09T08:02:49" hostname="DESKTOP-KCCH660" time="95.76">
+  <properties/>
+  <testcase name="runScenario[0](&quot;get api check of pages&quot;, &quot;Optional[Get Api Response]&quot;)" classname="Runner.HybridRunner" time="4.677"/>
+  <testcase name="runScenario[1](&quot;check register registration successful or not&quot;, &quot;Optional[Register Registration]&quot;)" classname="Runner.HybridRunner" time="1.541"/>
+  <testcase name="runScenario[2](&quot;login with valid credentials&quot;, &quot;Optional[eribank login]&quot;)" classname="Runner.HybridRunner" time="46.537"/>
+  <testcase name="runScenario[3](&quot;Manager adds a customer&quot;, &quot;Optional[Bank Manager Login (add customer)]&quot;)" classname="Runner.HybridRunner" time="15.958"/>
+  <testcase name="runScenario[4](&quot;Manager open an account&quot;, &quot;Optional[Bank Manager Login (open account)]&quot;)" classname="Runner.HybridRunner" time="13.111"/>
+  <testcase name="runScenario[5](&quot;manager delete account&quot;, &quot;Optional[Bank Manager Login (customers)]&quot;)" classname="Runner.HybridRunner" time="13.926"/>
+  <system-out><![CDATA[
+@smoke
+Scenario Outline: get api check of pages # src/test/resources/Features/APi/EmpRegGetAPi.feature:11
+  Given user has the base api            # StepDefinition.APiAutomation.EmpRegGetAPiStepdefs.userHasTheBaseApi()
+https://reqres.in/api/users?page=2
+Control here in api call
+http://localhosthttps://reqres.in/api/users?page=2
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+  When user call the '?page' and '2'     # StepDefinition.APiAutomation.EmpRegGetAPiStepdefs.userCallTheParameterAndParamsValue(java.lang.String,java.lang.String)
+Michael
+  Then it will return valid data         # StepDefinition.APiAutomation.EmpRegGetAPiStepdefs.itWillReturnValidData()
+
+@smoke
+Scenario Outline: check register registration successful or not # src/test/resources/Features/APi/EmpRegPostAPi.feature:11
+  Given register has the api  'register'                        # StepDefinition.APiAutomation.EmpRegPostAPiStepdefs.registerHasTheApiPath(java.lang.String)
+  When register hit 'eve.holt@reqres.in' and '123456'           # StepDefinition.APiAutomation.EmpRegPostAPiStepdefs.registerHitEmailAndPassword(java.lang.String,java.lang.String)
+https://reqres.in/api/register
+{Content-Type=application/json;charset=UTF-8}
+{"id":4,"token":"QpwL5tke4Pnpja7X4"}
+  And call the api with body                                    # StepDefinition.APiAutomation.EmpRegPostAPiStepdefs.callTheApiWithBody()
+4
+QpwL5tke4Pnpja7X4
+Successfully Connected to the database!
+1
+Manotosh
+QA
+  Then it will return token                                     # StepDefinition.APiAutomation.EmpRegPostAPiStepdefs.itWillReturnToken()
+
+@smoke
+Scenario Outline: login with valid credentials # src/test/resources/Features/App/AppLogin.feature:12
+  Given User in the login page                 # StepDefinition.AppAutomation.EeiBankLoginStepdefs.userInTheLoginPage()
+  And User fill 'company' and 'company'        # StepDefinition.AppAutomation.EeiBankLoginStepdefs.userFillUserNameAndPassword(java.lang.String,java.lang.String)
+  And press '<login>'                          # StepDefinition.AppAutomation.EeiBankLoginStepdefs.pressLogin(java.lang.String)
+Manotosh
+  Then user will be logged in                  # StepDefinition.AppAutomation.EeiBankLoginStepdefs.userWillBeLoggedIn()
+
+@smoke
+Scenario Outline: Manager adds a customer              # src/test/resources/Features/Web/bml1AddAccount.feature:13
+  Given bank manager lands on the XYZ home page        # StepDefinition.WebAutomation.BML1AddAccountStepDefinition.bankManagerLandsOnTheXYZHomePage()
+  When manager clicks on the bank manager login option # StepDefinition.WebAutomation.BML1AddAccountStepDefinition.managerClicksOnTheBankManagerLoginOption()
+  And manager clicks on the add customer tab           # StepDefinition.WebAutomation.BML1AddAccountStepDefinition.managerClicksOnTheAddCustomerTab()
+  And manager inserts 'Manotosh' 'Halder' and '1212'   # StepDefinition.WebAutomation.BML1AddAccountStepDefinition.managerInsertsFirstNameLastNameAndPostCode(java.lang.String,java.lang.String,java.lang.String)
+  And manager clicks on the add customer option        # StepDefinition.WebAutomation.BML1AddAccountStepDefinition.managerClicksOnTheAddCustomerOption()
+Customer added successfully with customer id :6
+  Then manager gets a popup notification and closes it # StepDefinition.WebAutomation.BML1AddAccountStepDefinition.managerGetsAPopupNotificationAndClosesIt()
+
+@smoke
+Scenario: Manager open an account                           # src/test/resources/Features/Web/bml2OpenAccount.feature:4
+  Given bank manager clicks on the oppen account tab        # StepDefinition.WebAutomation.BML2OppenAccountStepdefs.bankManagerClicksOnTheOppenAccountTab()
+  When bank manager select newly add a customer name        # StepDefinition.WebAutomation.BML2OppenAccountStepdefs.bankManagerSelectNewlyAddACustomerName()
+  And bank manager select currency                          # StepDefinition.WebAutomation.BML2OppenAccountStepdefs.bankManagerSelectCurrency()
+  And bank manager click process button                     # StepDefinition.WebAutomation.BML2OppenAccountStepdefs.bankManagerClickProcessButton()
+Account created successfully with account Number :1016
+  Then bank manager gets a popup notification and closes it # StepDefinition.WebAutomation.BML2OppenAccountStepdefs.bankManagerGetsAPopupNotificationAndClosesIt()
+
+@smoke
+Scenario: manager delete account            # src/test/resources/Features/Web/bml3DeleteCustomer.feature:4
+  Given manager in customers page           # StepDefinition.WebAutomation.BML3DeleteAccountStepdefs.managerInCustomersPage()
+  When manager search name                  # StepDefinition.WebAutomation.BML3DeleteAccountStepdefs.managerSearchName()
+  And manager delete the account            # StepDefinition.WebAutomation.BML3DeleteAccountStepdefs.managerDeleteTheAccount()
+  Then successfully account will be deleted # StepDefinition.WebAutomation.BML3DeleteAccountStepdefs.successfullyAccountWillBeDeleted()
+]]></system-out>
+  <system-err><![CDATA[SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+Starting ChromeDriver 114.0.5735.90 (386bc09e8f4f2e025eddae123f36f6263096ae49-refs/branch-heads/5735@{#1052}) on port 8044
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Jun 09, 2023 2:03:46 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 114
+Jun 09, 2023 2:03:46 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.7.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+</testsuite>
